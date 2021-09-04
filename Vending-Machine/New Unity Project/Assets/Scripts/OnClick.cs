@@ -10,11 +10,12 @@ public class OnClick : MonoBehaviour
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
     public GameObject vendingMachine;
     public VendingMachine vendingMachineObj;
+    public double money;
     void Start()
     {
-        doceA.onClick.AddListener(() => acceptCandy(1));
-        doceB.onClick.AddListener(() => acceptCandy(2));
-        doceC.onClick.AddListener(() => acceptCandy(3));
+        doceA.onClick.AddListener(() => acceptCandy(1, money));
+        doceB.onClick.AddListener(() => acceptCandy(2, money));
+        doceC.onClick.AddListener(() => acceptCandy(3, money));
         vendingMachineObj = vendingMachine.GetComponent<VendingMachine>();
     }
 
@@ -24,8 +25,8 @@ public class OnClick : MonoBehaviour
 
     }
 
-    public void acceptCandy(int type){
-        vendingMachineObj.acceptCandy(type);
+    public void acceptCandy(int type, double money){
+        vendingMachineObj.acceptCandy(type, money);
     }
 
 }   
