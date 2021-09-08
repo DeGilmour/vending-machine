@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 904353387}
   - component: {fileID: 904353386}
   m_Layer: 0
-  m_Name: Money (7)
+  m_Name: Money (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToBeDragged: {fileID: 0}
-  value: 7
+  value: 2
 --- !u!212 &904353388
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 1693703462}
   - component: {fileID: 1693703461}
   m_Layer: 0
-  m_Name: Money (8)
+  m_Name: Money (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToBeDragged: {fileID: 0}
-  value: 8
+  value: 5
 --- !u!212 &1693703463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 1764020724}
   - component: {fileID: 1764020726}
   m_Layer: 0
-  m_Name: Money(6)
+  m_Name: Money (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToBeDragged: {fileID: 0}
-  value: 6
+  value: 1
 --- !u!50 &1764020726
 Rigidbody2D:
   serializedVersion: 4
