@@ -13,9 +13,9 @@ public class OnClick : MonoBehaviour
     public double money;
     void Start()
     {
-        doceA.onClick.AddListener(() => acceptCandy(1, money));
-        doceB.onClick.AddListener(() => acceptCandy(2, money));
-        doceC.onClick.AddListener(() => acceptCandy(3, money));
+        doceA.onClick.AddListener(() => acceptCandy(1));
+        doceB.onClick.AddListener(() => acceptCandy(2));
+        doceC.onClick.AddListener(() => acceptCandy(3));
         vendingMachineObj = vendingMachine.GetComponent<VendingMachine>();
     }
 
@@ -25,8 +25,8 @@ public class OnClick : MonoBehaviour
 
     }
 
-    public void acceptCandy(int type, double money){
-        vendingMachineObj.acceptCandy(type, money);
+    public void acceptCandy(int type){
+        vendingMachineObj.acceptCandy(type);
     }
 
 }   

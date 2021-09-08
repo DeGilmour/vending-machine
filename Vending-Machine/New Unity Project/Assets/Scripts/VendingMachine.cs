@@ -8,6 +8,7 @@ public class VendingMachine : MonoBehaviour
     // Start is called before the first frame update
     private int credit;
     private int[] candiesInMachine = new int[15];
+    double money;
     private Dictionary<int, int> candy_value = new Dictionary<int, int>();
  
     void Start()
@@ -23,7 +24,7 @@ public class VendingMachine : MonoBehaviour
         
     }
 
-    public void acceptCandy(int candy_type, double money){
+    public void acceptCandy(int candy_type){
         var diff = money.CompareTo(candy_type);
         double change = Math.Abs(money -  candy_value[candy_type]);
         if(diff > 0){
@@ -32,6 +33,11 @@ public class VendingMachine : MonoBehaviour
         else{
             Debug.Log("Not enough money");
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        double value =  collision.gameObject.GetComponent<DragItem>().value;
+        money += value;
     }
 
 }
