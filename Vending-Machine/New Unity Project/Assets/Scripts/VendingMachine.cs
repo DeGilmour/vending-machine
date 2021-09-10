@@ -27,7 +27,6 @@ public class VendingMachine : MonoBehaviour
     }
 
     public void acceptCandy(int candy_type){
-        //var diff = payment.CompareTo(candy_type);
         double change = Math.Abs(payment - candy_value[candy_type]);
         if (change >= 0)
         {
@@ -42,7 +41,8 @@ public class VendingMachine : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         double value =  collision.gameObject.GetComponent<DragItem>().value;
-        payment+= value;
+        payment += value;
+        Destroy(collision.gameObject);
     }
 
 }
