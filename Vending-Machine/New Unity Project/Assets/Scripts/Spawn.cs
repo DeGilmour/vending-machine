@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public GameObject candy;
-    int numberOfGameObjects = 0;
-    public Transform spawnCandyA, spawnCandyB, spawnCandyC;
+    public GameObject candyA, candyB, candyC;
+    public Transform spawn;
     void Start()
     {
+        // if(stop < 2)
+        //    InvokeRepeating("SpawnCandy", 1, 3);
     }
 
     void Update()
     {
+        
     }
 
-    void SpawnCandy(int candy_type)
+    public void SpawnCandy(int candy_type)
     {
-        numberOfGameObjects++;
-        Transform spawn = spawnCandyA;
-        if(candy_type != 0)
-            if(candy_type == 2)
-                spawn = spawnCandyB;
-            else if(candy_type == 3)
-                spawn = spawnCandyC;
+        GameObject candy = candyA;
+        if(candy_type == 2)
+            candy = candyB;
+        else
+            candy  = candyC;
         Instantiate(candy, spawn.position, Quaternion.identity);
 
     }

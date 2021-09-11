@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candy : MonoBehaviour
+public class Candy
 {
-    private Dictionary<int, int> candy_value = new Dictionary<int, int>();
-    void Start()
-    {
-        candy_value.Add(1, 6);
-        candy_value.Add(2, 7);
-        candy_value.Add(3, 8);
-        
+    public int candy_type;
+    public Candy(int candy_type_){
+      candy_type = candy_type_;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public double decideWhichCandy(){
+        double candy_value = 6.00;
+        if(candy_type == 2)
+            candy_value = 7.00;
+        else
+            candy_value = 8.00;
+        return candy_value;
     }
 }

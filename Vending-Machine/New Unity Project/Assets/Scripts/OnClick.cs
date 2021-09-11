@@ -10,7 +10,6 @@ public class OnClick : MonoBehaviour
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
     public GameObject vendingMachine;
     public VendingMachine vendingMachineObj;
-    public double money;
     void Start()
     {
         doceA.onClick.AddListener(() => acceptCandy(1));
