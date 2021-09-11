@@ -19,10 +19,13 @@ public class DragItem : MonoBehaviour
     {
         if (being_dragged)
             drag();
+        //Debug.Log("being_dragged");
     }
     void OnMouseDown()
     {
         being_dragged = true;
+        Debug.Log("being_dragged");
+
     }
     void OnMouseUp()
     {
