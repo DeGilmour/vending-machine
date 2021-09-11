@@ -374,6 +374,8 @@ GameObject:
   - component: {fileID: 238058473}
   - component: {fileID: 238058474}
   - component: {fileID: 238058475}
+  - component: {fileID: 238058476}
+  - component: {fileID: 238058477}
   m_Layer: 0
   m_Name: buttonA
   m_TagString: Untagged
@@ -381,20 +383,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &238058471
-Transform:
+--- !u!224 &238058471
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238058470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.549988, y: 8.350006, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 176100656}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.549988, y: 8.350006}
+  m_SizeDelta: {x: 2.64, y: 2.64}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &238058472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -476,8 +483,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 2e4049cb2e8e6ed44b192dbd1d6a7944, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 869039bb7f1d2d844ae18809605d3784, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -490,7 +497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -536,6 +543,33 @@ MonoBehaviour:
   vendingMachine: {fileID: 176100654}
   vendingMachineObj: {fileID: 176100657}
   money: 10
+--- !u!222 &238058476
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238058470}
+  m_CullTransparentMesh: 1
+--- !u!95 &238058477
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238058470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f995fe2925159048895f9313e9598b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &276915871
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -820,7 +854,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
