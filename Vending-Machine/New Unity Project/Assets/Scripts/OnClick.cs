@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class OnClick : MonoBehaviour
 {
-    public Button doceA, doceB, doceC;
+    public Button buttonA, buttonB, buttonC;
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
     public GameObject vendingMachine;
     public VendingMachine vendingMachineObj;
     public double money;
     void Start()
     {
-        doceA.onClick.AddListener(() => acceptCandy(1));
-        doceB.onClick.AddListener(() => acceptCandy(2));
-        doceC.onClick.AddListener(() => acceptCandy(3));
+        buttonA.onClick.AddListener(() => acceptCandy(1));
+        buttonB.onClick.AddListener(() => acceptCandy(2));
+        buttonC.onClick.AddListener(() => acceptCandy(3));
         vendingMachineObj = vendingMachine.GetComponent<VendingMachine>();
     }
 
