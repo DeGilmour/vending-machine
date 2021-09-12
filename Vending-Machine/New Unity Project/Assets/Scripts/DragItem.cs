@@ -5,12 +5,14 @@ using UnityEngine;
 public class DragItem : MonoBehaviour
 {
     public Collider2D itemToBeDragged;
+    public Vector3 pos;
     public double value;
     bool being_dragged;
     // Start is called before the first frame update
     void Start()
     {
         itemToBeDragged = GetComponent<Collider2D>();
+        pos = itemToBeDragged.gameObject.transform.position;
         being_dragged = false;
     }
 
@@ -27,6 +29,21 @@ public class DragItem : MonoBehaviour
     void OnMouseUp()
     {
         being_dragged = false;
+        if (itemToBeDragged.gameObject.name == "Money (1)")
+        {
+            Debug.Log(itemToBeDragged.gameObject.transform.position);
+            itemToBeDragged.gameObject.transform.position = pos;
+        }
+        if (itemToBeDragged.gameObject.name == "Money (2)")
+        {
+            Debug.Log(itemToBeDragged.gameObject.transform.position);
+            itemToBeDragged.gameObject.transform.position = pos;
+        }
+        if (itemToBeDragged.gameObject.name == "Money (5)")
+        {
+            Debug.Log(itemToBeDragged.gameObject.transform.position);
+            itemToBeDragged.gameObject.transform.position = pos;
+        }
     }
 
     void drag()
