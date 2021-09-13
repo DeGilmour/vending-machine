@@ -56,7 +56,7 @@ public class VendingMachine : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough money");
+            changeTextVendingMachine("Not enough money");
         }
     }
 

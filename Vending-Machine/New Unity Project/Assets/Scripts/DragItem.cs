@@ -29,19 +29,7 @@ public class DragItem : MonoBehaviour
     void OnMouseUp()
     {
         being_dragged = false;
-        if (itemToBeDragged.gameObject.name == "Money (1)")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
-            itemToBeDragged.gameObject.transform.position = pos;
-        }
-        if (itemToBeDragged.gameObject.name == "Money (2)")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
-            itemToBeDragged.gameObject.transform.position = pos;
-        }
-        if (itemToBeDragged.gameObject.name == "Money (5)")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
+        if (itemToBeDragged.gameObject.tag == "Money"){
             itemToBeDragged.gameObject.transform.position = pos;
         }
     }
