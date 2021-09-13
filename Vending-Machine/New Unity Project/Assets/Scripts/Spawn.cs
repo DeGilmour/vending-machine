@@ -7,7 +7,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject candyA, candyB, candyC;
     public Transform spawn;
-    public new Component rigidbody;
+
     void Start()
     {
         // if(stop < 2)
@@ -26,7 +26,7 @@ public class Spawn : MonoBehaviour
             candy = candyB;
         else
             candy  = candyC;
-        Instantiate(candy, spawn.position, Quaternion.identity).AddComponent(typeof(Rigidbody2D));
+        Instantiate(candy, spawn.position, Quaternion.identity);
 
     }
 }

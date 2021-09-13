@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class VendingMachine : MonoBehaviour
     public Spawn spawn; 
     public Candy candy;
 
+    public Text screen_obj;
     void Start()
     {
         spawn = spawnObject.GetComponent<Spawn>();
@@ -28,7 +29,6 @@ public class VendingMachine : MonoBehaviour
     }
 
     public void acceptCandy(int candy_type){
-        // double change = Math.Abs(payment - candy_value[candy_type]);
         candy = new Candy(candy_type=candy_type);
         Debug.Log("Payment: " + payment + " Candy value " + candy.decideWhichCandy());
         int change = (int)(payment - candy.decideWhichCandy());
@@ -60,13 +60,20 @@ public class VendingMachine : MonoBehaviour
         }
     }
 
+    public void changeTextVendingMachine(string msg){
+        Text screen = screen_obj.GetComponent<Text>();
+        screen.text = msg;
+    }
+
     public void dropItem(int candy_type){
         spawn.SpawnCandy(candy_type);
+        changeTextVendingMachine("R$ " + payment);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
         double value =  collision.gameObject.GetComponent<DragItem>().value;
         payment += value;
+        changeTextVendingMachine("R$ " + payment);
     }
 
 }
