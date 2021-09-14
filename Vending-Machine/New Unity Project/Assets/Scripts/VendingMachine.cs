@@ -39,6 +39,7 @@ public class VendingMachine : MonoBehaviour
             {
                 troco5 = change / 5;
                 rest = change % 5;
+                Debug.Log(rest);
                 if (rest != 0)
                 {
                     troco2 = rest / 2;
@@ -47,6 +48,10 @@ public class VendingMachine : MonoBehaviour
                     {
                         troco1 = rest;
                         Debug.Log("Give candy and change back, change: " + change + " Moedas de 5c: " + troco5 + ", Moedas de 2c: " + troco2 + ", Moedas de 1c: " + troco1);
+                        for(int c=0; c < troco5; c++){
+                            Debug.Log("Drop coin 5");
+                            dropCoin(3);
+                        }
                     }
                 }
             }
@@ -66,8 +71,12 @@ public class VendingMachine : MonoBehaviour
     }
 
     public void dropItem(int candy_type){
-        spawn.SpawnCandy(candy_type);
+        spawn.spawnCandy(candy_type);
         changeTextVendingMachine("R$ " + payment);
+    }
+
+    public void dropCoin(int coin_type){
+        spawn.spawnCoin(3);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

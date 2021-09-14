@@ -6,6 +6,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public GameObject candyA, candyB, candyC;
+    public GameObject coin1,coin2,coin5;
     public Transform spawn;
 
     void Start()
@@ -19,7 +20,7 @@ public class Spawn : MonoBehaviour
         
     }
 
-    public void SpawnCandy(int candy_type)
+    public void spawnCandy(int candy_type)
     {
         GameObject candy = candyA;
         if(candy_type == 2)
@@ -28,5 +29,13 @@ public class Spawn : MonoBehaviour
             candy  = candyC;
         Instantiate(candy, spawn.position, Quaternion.identity);
 
+    }
+    public void spawnCoin(int coin_type){
+        GameObject coin = coin1;
+        if(coin_type == 2)
+            coin = coin2;
+        else
+            coin  = coin5;
+        Instantiate(coin, spawn.position, Quaternion.identity);
     }
 }

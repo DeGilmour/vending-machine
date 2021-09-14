@@ -31,6 +31,7 @@ public class DragItem : MonoBehaviour
         being_dragged = false;
         if (itemToBeDragged.gameObject.tag == "Money"){
             itemToBeDragged.gameObject.transform.position = pos;
+            itemToBeDragged.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 
