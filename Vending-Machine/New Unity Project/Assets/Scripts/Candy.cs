@@ -13,7 +13,7 @@ public class Candy
         double candy_value = 6.00;
         if(candy_type == 2)
             candy_value = 7.00;
-        else
+        else if(candy_type == 3)
             candy_value = 8.00;
         return candy_value;
     }

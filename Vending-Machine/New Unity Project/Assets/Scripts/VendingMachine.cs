@@ -32,6 +32,7 @@ public class VendingMachine : MonoBehaviour
         candy = new Candy(candy_type=candy_type);
         Debug.Log("Payment: " + payment + " Candy value " + candy.decideWhichCandy());
         int change = (int)(payment - candy.decideWhichCandy());
+        Debug.Log(change);
         if (change >= 0)
         {
             int troco5, troco2, troco1, rest;
@@ -76,7 +77,7 @@ public class VendingMachine : MonoBehaviour
     }
 
     public void dropCoin(int coin_type){
-        spawn.spawnCoin(3);
+        spawn.spawnCoin(coin_type);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
