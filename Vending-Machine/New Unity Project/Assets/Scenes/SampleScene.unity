@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140688325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 749.44, y: 280.73, z: 0}
+  m_LocalPosition: {x: 749.66, y: 277.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -648,8 +648,8 @@ MonoBehaviour:
   doceC: {fileID: 186074767}
   newSprite: {fileID: 21300000, guid: 01b24449011ae7647ab911c36480a4b9, type: 3}
   oldSprite: {fileID: 21300000, guid: 7a577b5bbdd010d4c8e4d9ad78c43c0b, type: 3}
-  vendingMachine: {fileID: 176100654}
-  vendingMachineObj: {fileID: 176100657}
+  vendingMachine: {fileID: 930818671}
+  vendingMachineObj: {fileID: 930818674}
   buttonType: 2
 --- !u!1 &519420028
 GameObject:
@@ -1281,8 +1281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298219169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 744.986, y: 276.15, z: 0}
-  m_LocalScale: {x: 41.6236, y: 4.0126, z: 1}
+  m_LocalPosition: {x: 744.986, y: 274.95, z: 0}
+  m_LocalScale: {x: 41.6236, y: 0.3511747, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1484,8 +1484,8 @@ MonoBehaviour:
   doceC: {fileID: 186074767}
   newSprite: {fileID: 21300000, guid: aa89b4dc8948c214896448c9dab03f50, type: 3}
   oldSprite: {fileID: 21300000, guid: 03452f4b2b275364d9e4f1fdae7a55ac, type: 3}
-  vendingMachine: {fileID: 176100654}
-  vendingMachineObj: {fileID: 176100657}
+  vendingMachine: {fileID: 930818671}
+  vendingMachineObj: {fileID: 930818674}
   buttonType: 1
 --- !u!58 &1584016350
 CircleCollider2D:
@@ -2031,8 +2031,8 @@ MonoBehaviour:
   doceC: {fileID: 186074767}
   newSprite: {fileID: 21300000, guid: 8c9c7c4a49e92a946a735cd98ed1a9dd, type: 3}
   oldSprite: {fileID: 21300000, guid: 1dbbce7bb4ae2c64f9e14cbf2ed87bff, type: 3}
-  vendingMachine: {fileID: 176100654}
-  vendingMachineObj: {fileID: 176100657}
+  vendingMachine: {fileID: 930818671}
+  vendingMachineObj: {fileID: 930818674}
   buttonType: 3
 --- !u!212 &1778665588
 SpriteRenderer:
@@ -2290,7 +2290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949398987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 749.41, y: 277.76, z: 0}
+  m_LocalPosition: {x: 743.64, y: 277.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1870478271}
