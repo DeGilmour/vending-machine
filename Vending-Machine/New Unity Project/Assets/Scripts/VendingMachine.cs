@@ -48,11 +48,11 @@ public class VendingMachine : MonoBehaviour
                     if (rest != 0)
                     {
                         troco1 = rest;
-                        Debug.Log("Give candy and change back, change: " + change + " Moedas de 5c: " + troco5 + ", Moedas de 2c: " + troco2 + ", Moedas de 1c: " + troco1);
-                        for(int c=0; c < troco5; c++){
-                            Debug.Log("Drop coin 5");
-                            dropCoin(3);
-                        }
+                        changeTextVendingMachine("Give candy and change back, change: " + change + " Moedas de 5c: " + troco5 + ", Moedas de 2c: " + troco2 + ", Moedas de 1c: " + troco1);
+                        // for(int c=0; c < troco5; c++){
+                        //     Debug.Log("Drop coin 5");
+                        //     dropCoin(3);
+                        // }
                     }
                 }
             }
@@ -69,6 +69,7 @@ public class VendingMachine : MonoBehaviour
     public void changeTextVendingMachine(string msg){
         Text screen = screen_obj.GetComponent<Text>();
         screen.text = msg;
+        Debug.Log(msg);
     }
 
     public void dropItem(int candy_type){

@@ -11,8 +11,7 @@ public class Spawn : MonoBehaviour
 
     void Start()
     {
-        // if(stop < 2)
-        //    InvokeRepeating("SpawnCandy", 1, 3);
+        
     }
 
     void Update()
@@ -25,7 +24,7 @@ public class Spawn : MonoBehaviour
         GameObject candy = candyA;
         if(candy_type == 2)
             candy = candyB;
-        else
+        else if(candy_type == 3)
             candy  = candyC;
         Instantiate(candy, spawn.position, Quaternion.identity);
 
@@ -34,7 +33,7 @@ public class Spawn : MonoBehaviour
         GameObject coin = coin1;
         if(coin_type == 2)
             coin = coin2;
-        else
+        else if(coin_type == 3)
             coin  = coin5;
         Instantiate(coin, spawnCoinObj.position, Quaternion.identity);
     }
