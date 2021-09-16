@@ -254,7 +254,7 @@ MonoBehaviour:
   payment: 0
   spawnObject: {fileID: 1949398987}
   spawn: {fileID: 1949398988}
-  screen_obj: {fileID: 0}
+  screenObj: {fileID: 0}
 --- !u!61 &176100658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -516,7 +516,6 @@ GameObject:
   - component: {fileID: 571499959}
   - component: {fileID: 571499958}
   - component: {fileID: 571499957}
-  - component: {fileID: 571499960}
   m_Layer: 5
   m_Name: Screen
   m_TagString: Untagged
@@ -585,18 +584,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.4, y: -28.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &571499960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571499956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b84303c59181714087026ed2b2854b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &904353385
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +784,7 @@ MonoBehaviour:
   payment: 0
   spawnObject: {fileID: 1949398987}
   spawn: {fileID: 1949398988}
-  screen_obj: {fileID: 571499957}
+  screenObj: {fileID: 571499957}
 --- !u!1 &1075456687
 GameObject:
   m_ObjectHideFlags: 0

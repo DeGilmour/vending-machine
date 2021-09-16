@@ -26,25 +26,16 @@ public class OnClick : MonoBehaviour
 
     }
 
-    public void acceptCandy(int type){
+    public void AcceptCandy(int type){
 
-        vendingMachineObj.acceptCandy(type);
+        vendingMachineObj.AcceptCandy(type);
     }
 
     void OnMouseDown()
     {
         
         ChangeSprite(1);
-        // int type = 0;
-        // if(this.gameObject.name == "buttonA"){
-        //     type = 1;
-        // }
-        // else if(this.gameObject.name == "buttonB")
-        //     type = 2;
-        // else
-        //     type = 3;
-        Debug.Log(buttonType);
-        acceptCandy(buttonType);
+        AcceptCandy(buttonType);
     }
     
     void OnMouseUp()

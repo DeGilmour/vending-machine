@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DragItem : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class DragItem : MonoBehaviour
     void Update()
     {
         if (being_dragged)
-            drag();
+            Drag();
     }
     void OnMouseDown()
     {
@@ -34,9 +33,15 @@ public class DragItem : MonoBehaviour
             itemToBeDragged.gameObject.transform.position = pos;
             itemToBeDragged.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
+        else{
+            // I added this just for flavor, basically it gets the speed in which the object its released(mouse input) * 1000 and sets that to be the current velocity
+            Vector2 mouseVector = new Vector2(Input.GetAxis("Mouse X") * 1000f, Input.GetAxis("Mouse Y") * 1000f);
+            Rigidbody2D rigid = itemToBeDragged.gameObject.GetComponent<Rigidbody2D>();
+            rigid.velocity = (mouseVector * Time.deltaTime) / rigid.mass;
+        }
     }
 
-    void drag()
+    void Drag()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         this.transform.position = mousePos;
