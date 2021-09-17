@@ -19,21 +19,21 @@ public class Spawn : MonoBehaviour
         
     }
 
-    public void spawnCandy(int candy_type)
+    public void spawnCandy(int candyType)
     {
         GameObject candy = candyA;
-        if(candy_type == 2)
+        if(candyType == 2)
             candy = candyB;
-        else if(candy_type == 3)
+        else if(candyType == 3)
             candy  = candyC;
         Instantiate(candy, spawn.position, Quaternion.identity);
 
     }
-    public void spawnCoin(int coin_type){
+    public void spawnCoin(int coinType){
         GameObject coin = coin1;
-        if(coin_type == 2)
+        if(coinType == 2)
             coin = coin2;
-        else if(coin_type == 3)
+        else if(coinType == 3)
             coin  = coin5;
         Instantiate(coin, spawnCoinObj.position, Quaternion.identity);
     }

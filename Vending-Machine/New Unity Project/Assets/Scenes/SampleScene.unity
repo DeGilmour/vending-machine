@@ -254,7 +254,7 @@ MonoBehaviour:
   payment: 0
   spawnObject: {fileID: 1949398987}
   spawn: {fileID: 1949398988}
-  screenObj: {fileID: 0}
+  screen: {fileID: 0}
 --- !u!61 &176100658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -414,9 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doceA: {fileID: 0}
-  doceB: {fileID: 426621905}
-  doceC: {fileID: 0}
   newSprite: {fileID: 21300000, guid: 01b24449011ae7647ab911c36480a4b9, type: 3}
   oldSprite: {fileID: 21300000, guid: 7a577b5bbdd010d4c8e4d9ad78c43c0b, type: 3}
   vendingMachine: {fileID: 930818671}
@@ -784,7 +781,7 @@ MonoBehaviour:
   payment: 0
   spawnObject: {fileID: 1949398987}
   spawn: {fileID: 1949398988}
-  screenObj: {fileID: 571499957}
+  screen: {fileID: 571499957}
 --- !u!1 &1075456687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,9 +1247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doceA: {fileID: 0}
-  doceB: {fileID: 0}
-  doceC: {fileID: 0}
   newSprite: {fileID: 21300000, guid: aa89b4dc8948c214896448c9dab03f50, type: 3}
   oldSprite: {fileID: 21300000, guid: 03452f4b2b275364d9e4f1fdae7a55ac, type: 3}
   vendingMachine: {fileID: 930818671}
@@ -1797,9 +1791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27448b0f6266b9f4c8d4c093fd2b6ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doceA: {fileID: 0}
-  doceB: {fileID: 0}
-  doceC: {fileID: 0}
   newSprite: {fileID: 21300000, guid: 8c9c7c4a49e92a946a735cd98ed1a9dd, type: 3}
   oldSprite: {fileID: 21300000, guid: 1dbbce7bb4ae2c64f9e14cbf2ed87bff, type: 3}
   vendingMachine: {fileID: 930818671}

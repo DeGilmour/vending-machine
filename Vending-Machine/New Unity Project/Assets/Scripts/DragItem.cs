@@ -29,14 +29,14 @@ public class DragItem : MonoBehaviour
     void OnMouseUp()
     {
         being_dragged = false;
-        if (itemToBeDragged.gameObject.tag == "Money"){
+        if (itemToBeDragged.gameObject.CompareTag("Money")){
             itemToBeDragged.gameObject.transform.position = pos;
             itemToBeDragged.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         else{
             // I added this just for flavor, basically it gets the speed in which the object its released(mouse input) * 1000 and sets that to be the current velocity
-            Vector2 mouseVector = new Vector2(Input.GetAxis("Mouse X") * 1000f, Input.GetAxis("Mouse Y") * 1000f);
-            Rigidbody2D rigid = itemToBeDragged.gameObject.GetComponent<Rigidbody2D>();
+            var mouseVector = new Vector2(Input.GetAxis("Mouse X") * 1000f, Input.GetAxis("Mouse Y") * 1000f);
+            var rigid = itemToBeDragged.gameObject.GetComponent<Rigidbody2D>();
             rigid.velocity = (mouseVector * Time.deltaTime) / rigid.mass;
         }
     }

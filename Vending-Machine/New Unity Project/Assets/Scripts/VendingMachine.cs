@@ -8,13 +8,12 @@ using UnityEngine.UI;
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int credit;
     public double payment;
     public GameObject spawnObject;
     public Spawn spawn; 
     private Candy candy;
 
-    public Text screenObj;
+    public Text screen;
     void Start()
     {
         spawn = spawnObject.GetComponent<Spawn>();
@@ -30,7 +29,17 @@ public class VendingMachine : MonoBehaviour
         candy = new Candy(candyType);
         Debug.Log("Payment: " + payment + " Candy value " + candy.DecideWhichCandy());
         int change = (int)(payment - candy.DecideWhichCandy());
-        Debug.Log(change);
+        if(change >=  0 ){
+            CalculateChange(change);
+            payment = 0;
+            DropItem(candyType);
+        }
+        else{
+            ChangeTextVendingMachine("Not enough money");
+        }
+    }
+
+    void CalculateChange(int change){
         if (change >= 0)
         {
             int troco5, troco2, troco1, rest;
@@ -38,7 +47,6 @@ public class VendingMachine : MonoBehaviour
             {
                 troco5 = change / 5;
                 rest = change % 5;
-                Debug.Log(rest);
                 if (rest != 0)
                 {
                     troco2 = rest / 2;
@@ -47,36 +55,29 @@ public class VendingMachine : MonoBehaviour
                     {
                         troco1 = rest;
                         ChangeTextVendingMachine("Give candy and change back, change: " + change + " Moedas de 5c: " + troco5 + ", Moedas de 2c: " + troco2 + ", Moedas de 1c: " + troco1);
-                        // for(int c=0; c < troco5; c++){
-                        //     Debug.Log("Drop coin 5");
-                        //     dropCoin(3);
-                        // }
                     }
                 }
             }
-            
-            payment = 0;
-            dropItem(candyType);
         }
         else
         {
             ChangeTextVendingMachine("Not enough money");
         }
+        
     }
 
     public void ChangeTextVendingMachine(string msg){
-        Text screen = screenObj.GetComponent<Text>();
         screen.text = msg;
         Debug.Log(msg);
     }
 
-    public void dropItem(int candyType){
+    public void DropItem(int candyType){
         spawn.spawnCandy(candyType);
         ChangeTextVendingMachine("R$ " + payment);
     }
 
-    public void dropCoin(int coin_type){
-        spawn.spawnCoin(coin_type);
+    public void DropCoin(int coinType){
+        spawn.spawnCoin(coinType);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

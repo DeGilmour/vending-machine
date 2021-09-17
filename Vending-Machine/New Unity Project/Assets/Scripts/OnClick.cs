@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class OnClick : MonoBehaviour
 {
     // public Button doceA, doceB, doceC;
-    public GameObject doceA, doceB, doceC;
     private SpriteRenderer spriteRenderer;
     public Sprite newSprite, oldSprite;
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
