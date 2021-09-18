@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.WSA;
+
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -30,7 +32,7 @@ public class VendingMachine : MonoBehaviour
         Debug.Log("Payment: " + payment + " Candy value " + candy.DecideWhichCandy());
         int change = (int)(payment - candy.DecideWhichCandy());
         if(change >=  0 ){
-            CalculateChange(change);
+            ChangeTextVendingMachine($"{CalculateChange(change)}");
             payment = 0;
             DropItem(candyType);
         }
@@ -39,31 +41,24 @@ public class VendingMachine : MonoBehaviour
         }
     }
 
-    void CalculateChange(int change){
-        if (change >= 0)
+    public String CalculateChange(int change){
+        int[] coins = { 5, 2, 1 };
+        int[] amounts = new int[coins.Length];
+        string msg = "";
+
+        for (int i = 0; i < coins.Length; i++) 
         {
-            int troco5, troco2, troco1, rest;
-            if (change >= 5)
-            {
-                troco5 = change / 5;
-                rest = change % 5;
-                if (rest != 0)
-                {
-                    troco2 = rest / 2;
-                    rest = rest % 2;
-                    if (rest != 0)
-                    {
-                        troco1 = rest;
-                        ChangeTextVendingMachine("Give candy and change back, change: " + change + " Moedas de 5c: " + troco5 + ", Moedas de 2c: " + troco2 + ", Moedas de 1c: " + troco1);
-                    }
-                }
-            }
-        }
-        else
-        {
-            ChangeTextVendingMachine("Not enough money");
+            amounts[i] = change / coins[i];
+            change = change % coins[i];
         }
         
+        for(int i = 0; i < amounts.Length; i++)
+        {
+            msg += $" Moedas de {coins[i]}: {amounts[i]}";
+        }
+
+        Debug.Log(amounts[0] + "," + amounts[1] + "," + amounts[2]);
+        return msg;
     }
 
     public void ChangeTextVendingMachine(string msg){
