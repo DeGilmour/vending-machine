@@ -33,8 +33,9 @@ public class Spawn : MonoBehaviour
         GameObject coin = coin1;
         if(coinType == 2)
             coin = coin2;
-        else if(coinType == 3)
+        else if(coinType == 5)
             coin  = coin5;
-        Instantiate(coin, spawnCoinObj.position, Quaternion.identity);
+        Instantiate(coin, spawnCoinObj.position, Quaternion.identity).AddComponent<Coin>();
+
     }
 }

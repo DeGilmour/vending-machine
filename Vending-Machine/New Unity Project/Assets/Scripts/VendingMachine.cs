@@ -30,11 +30,13 @@ public class VendingMachine : MonoBehaviour
     {
         candy = new Candy(candyType);
         int change = (int) (payment - candy.DecideWhichCandy());
+        ChangeTextVendingMachine($"Troco: R$ {change}");
         if (change >= 0)
         {
-            ChangeTextVendingMachine($"{CalculateChange(change)}");
+            CalculateChange(change);
             payment = 0;
             DropItem(candyType);
+            // ChangeTextVendingMachine("R$ " + payment);
             // ChangeTextVendingMachine("R$ " + payment);
         }
         else
@@ -43,7 +45,7 @@ public class VendingMachine : MonoBehaviour
         }
     }
 
-    private static String CalculateChange(int change)
+    private void CalculateChange(int change)
     {
         int[] coins = {5, 2, 1};
         int[] amounts = new int[coins.Length];
@@ -55,13 +57,15 @@ public class VendingMachine : MonoBehaviour
             change = change % coins[i];
         }
 
-        // for (int i = 0; i < amounts.Length; i++)
-        // {
-        //     msg += $" Moedas de {coins[i]}: {amounts[i]}";
-        // }
-        Debug.Log(change);
-        msg = $"Troco: R$ {change}";
-        return msg;
+        for (int i = 0; i < amounts.Length; i++)
+        {
+            msg += $" Moedas de {coins[i]}: {amounts[i]}";
+            for (var c = 1; c <= amounts[i]; c++)
+            {
+                Debug.Log(coins[i]);
+                DropCoin(coins[i]);
+            }
+        }
     }
 
     private void ChangeTextVendingMachine(string msg)
@@ -87,6 +91,7 @@ public class VendingMachine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!collision.gameObject.CompareTag("Money")) return;
         double value = collision.gameObject.GetComponent<DragItem>().value;
         payment += value;
         ChangeTextVendingMachine("R$ " + payment);
