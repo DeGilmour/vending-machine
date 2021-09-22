@@ -36,8 +36,6 @@ public class VendingMachine : MonoBehaviour
             CalculateChange(change);
             payment = 0;
             DropItem(candyType);
-            // ChangeTextVendingMachine("R$ " + payment);
-            // ChangeTextVendingMachine("R$ " + payment);
         }
         else
         {
@@ -62,7 +60,6 @@ public class VendingMachine : MonoBehaviour
             msg += $" Moedas de {coins[i]}: {amounts[i]}";
             for (var c = 1; c <= amounts[i]; c++)
             {
-                Debug.Log(coins[i]);
                 DropCoin(coins[i]);
             }
         }
