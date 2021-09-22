@@ -57,7 +57,6 @@ public class VendingMachine : MonoBehaviour
             msg += $" Moedas de {coins[i]}: {amounts[i]}";
         }
 
-        Debug.Log(amounts[0] + "," + amounts[1] + "," + amounts[2]);
         return msg;
     }
 

@@ -385,7 +385,7 @@ SpriteRenderer:
   m_Size: {x: 2.64, y: 2.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &426621908
@@ -847,7 +847,7 @@ SpriteRenderer:
   m_Size: {x: 51.2, y: 28.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1075456689
@@ -940,8 +940,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199515966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 745.01, y: 283.96, z: 0}
-  m_LocalScale: {x: 0.8130707, y: 0.68687516, z: 1}
+  m_LocalPosition: {x: 745.74, y: 283.66, z: 0}
+  m_LocalScale: {x: 1.7023771, y: 1.7107193, z: 2.0199456}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1199,7 +1199,7 @@ SpriteRenderer:
   m_Size: {x: 13.884609, y: 22.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1497666848
@@ -1316,7 +1316,7 @@ SpriteRenderer:
   m_Size: {x: 2.64, y: 2.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1584016352
@@ -1601,7 +1601,7 @@ SpriteRenderer:
   m_Size: {x: 13.884609, y: 22.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1720114994
@@ -1844,7 +1844,7 @@ SpriteRenderer:
   m_Size: {x: 2.64, y: 2.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1778665589
@@ -2037,8 +2037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyA: {fileID: 0}
-  candyB: {fileID: 6305920886942975244, guid: 843fe2882fd861642a8fa9e938693049, type: 3}
-  candyC: {fileID: 4664821633396160821, guid: 35c1b92f2e399c948a61811c13895ac6, type: 3}
+  candyB: {fileID: 6305920886942975244, guid: 9b58eb8f666e133458b17f4050384e61, type: 3}
+  candyC: {fileID: 4664821633396160821, guid: 49cc091173c8d70418affb17f4dc5c9a, type: 3}
   coin1: {fileID: 1764020721}
   coin2: {fileID: 904353385}
   coin5: {fileID: 1693703460}
