@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Money
+  - Candy
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: VMBack
+    uniqueID: 102525685
+    locked: 0
+  - name: Candy
+    uniqueID: 3271036249
+    locked: 0
+  - name: VMFront
+    uniqueID: 2089321155
+    locked: 0
+  - name: Coins
+    uniqueID: 1947012003
     locked: 0

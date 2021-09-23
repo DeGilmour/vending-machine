@@ -20,7 +20,7 @@ public class DragItem : MonoBehaviour
     void Update()
     {
         if (being_dragged)
-            drag();
+            Drag();
     }
     void OnMouseDown()
     {
@@ -29,28 +29,24 @@ public class DragItem : MonoBehaviour
     void OnMouseUp()
     {
         being_dragged = false;
-        if (itemToBeDragged.gameObject.name == "money1")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
+        if (itemToBeDragged.gameObject.CompareTag("Money")){
             itemToBeDragged.gameObject.transform.position = pos;
+            itemToBeDragged.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-        if (itemToBeDragged.gameObject.name == "money2")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
-            itemToBeDragged.gameObject.transform.position = pos;
-        }
-        if (itemToBeDragged.gameObject.name == "money5")
-        {
-            Debug.Log(itemToBeDragged.gameObject.transform.position);
-            itemToBeDragged.gameObject.transform.position = pos;
+        else{
+            // I added this just for flavor, basically it gets the speed in which the object its released(mouse input) * 1000 and sets that to be the current velocity
+            var mouseVector = new Vector2(Input.GetAxis("Mouse X") * 1000f, Input.GetAxis("Mouse Y") * 1000f);
+            var rigid = itemToBeDragged.gameObject.GetComponent<Rigidbody2D>();
+            rigid.velocity = (mouseVector * Time.deltaTime) / rigid.mass;
         }
     }
 
-    void drag()
+    void Drag()
     {
-
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         this.transform.position = mousePos;
     }
 
 }
+
+

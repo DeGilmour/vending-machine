@@ -1,48 +1,96 @@
-
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.WSA;
+using UnityEditor;
 
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int credit;
-    private int[] candiesInMachine = new int[15];
-    double payment;
-    private Dictionary<int, int> candy_value = new Dictionary<int, int>();
- 
+    public double payment;
+    public GameObject spawnObject;
+    public Spawn spawn;
+    private Candy candy;
+
+    public Text screen;
+
     void Start()
     {
-        candy_value.Add(1, 6);
-        candy_value.Add(2, 7);
-        candy_value.Add(3, 8);
+        spawn = spawnObject.GetComponent<Spawn>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public void acceptCandy(int candy_type){
-        //var diff = payment.CompareTo(candy_type);
-        double change = Math.Abs(payment - candy_value[candy_type]);
+    public void AcceptCandy(int candyType)
+    {
+        candy = new Candy(candyType);
+        int change = (int) (payment - candy.DecideWhichCandy());
+        ChangeTextVendingMachine($"Troco: R$ {change}");
         if (change >= 0)
         {
-            Debug.Log("Give candy and change back, change: " + change);
+            CalculateChange(change);
             payment = 0;
+            DropItem(candyType);
         }
         else
         {
-            Debug.Log("Not enough money");
+            ChangeTextVendingMachine("Not enough money");
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        double value =  collision.gameObject.GetComponent<DragItem>().value;
-        payment+= value;
+    private void CalculateChange(int change)
+    {
+        int[] coins = {5, 2, 1};
+        int[] amounts = new int[coins.Length];
+        string msg = "";
+
+        for (int i = 0; i < coins.Length; i++)
+        {
+            amounts[i] = change / coins[i];
+            change = change % coins[i];
+        }
+
+        for (int i = 0; i < amounts.Length; i++)
+        {
+            msg += $" Moedas de {coins[i]}: {amounts[i]}";
+            for (var c = 1; c <= amounts[i]; c++)
+            {
+                DropCoin(coins[i]);
+            }
+        }
     }
 
+    private void ChangeTextVendingMachine(string msg)
+    {
+        screen.text = msg;
+    }
+
+    private void CallAlertUnity(string msg)
+    {
+        EditorUtility.DisplayDialog("Resultado do Troco", msg, "Okay");
+    }
+
+    private void DropItem(int candyType)
+    {
+        spawn.spawnCandy(candyType);
+        // ChangeTextVendingMachine("R$ " + payment);
+    }
+
+    public void DropCoin(int coinType)
+    {
+        spawn.spawnCoin(coinType);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Money")) return;
+        double value = collision.gameObject.GetComponent<DragItem>().value;
+        payment += value;
+        ChangeTextVendingMachine("R$ " + payment);
+    }
 }

@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class OnClick : MonoBehaviour
 {
-    public Button buttonA, buttonB, buttonC;
+    // public Button doceA, doceB, doceC;
+    private SpriteRenderer spriteRenderer;
+    public Sprite newSprite, oldSprite;
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
     public GameObject vendingMachine;
     public VendingMachine vendingMachineObj;
-    public double money;
+    public int buttonType;
     void Start()
     {
-        buttonA.onClick.AddListener(() => acceptCandy(1));
-        buttonB.onClick.AddListener(() => acceptCandy(2));
-        buttonC.onClick.AddListener(() => acceptCandy(3));
         vendingMachineObj = vendingMachine.GetComponent<VendingMachine>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,8 +25,28 @@ public class OnClick : MonoBehaviour
 
     }
 
-    public void acceptCandy(int type){
-        vendingMachineObj.acceptCandy(type);
+    public void AcceptCandy(int type){
+
+        vendingMachineObj.AcceptCandy(type);
     }
 
+    void OnMouseDown()
+    {
+        
+        ChangeSprite(1);
+        AcceptCandy(buttonType);
+    }
+    
+    void OnMouseUp()
+    {
+        ChangeSprite(0);
+        
+    }
+    void ChangeSprite(int type) 
+    {
+        if(type == 1)
+            spriteRenderer.sprite = newSprite;
+        else
+            spriteRenderer.sprite = oldSprite;
+    }
 }   
