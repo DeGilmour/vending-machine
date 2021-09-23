@@ -3,7 +3,17 @@ guid: ea1c76f709c81a04e93a59e7e1511815
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - candyA: {instanceID: 0}
+  - candyB: {instanceID: 0}
+  - candyC: {instanceID: 0}
+  - coin1: {instanceID: 0}
+  - coin2: {instanceID: 0}
+  - coin5: {instanceID: 0}
+  - spawnA: {instanceID: 0}
+  - spawnB: {instanceID: 0}
+  - spawnC: {instanceID: 0}
+  - spawnCoinObj: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

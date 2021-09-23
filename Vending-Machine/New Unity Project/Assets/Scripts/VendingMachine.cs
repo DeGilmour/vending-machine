@@ -21,7 +21,6 @@ public class VendingMachine : MonoBehaviour
         spawn = spawnObject.GetComponent<Spawn>();
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
@@ -30,7 +29,7 @@ public class VendingMachine : MonoBehaviour
     {
         candy = new Candy(candyType);
         int change = (int) (payment - candy.DecideWhichCandy());
-        ChangeTextVendingMachine($"Troco: R$ {change}");
+        ChangeTextVendingMachine($"{change}");
         if (change >= 0)
         {
             CalculateChange(change);
@@ -78,7 +77,6 @@ public class VendingMachine : MonoBehaviour
     private void DropItem(int candyType)
     {
         spawn.spawnCandy(candyType);
-        // ChangeTextVendingMachine("R$ " + payment);
     }
 
     public void DropCoin(int coinType)
@@ -91,6 +89,6 @@ public class VendingMachine : MonoBehaviour
         if (!collision.gameObject.CompareTag("Money")) return;
         double value = collision.gameObject.GetComponent<DragItem>().value;
         payment += value;
-        ChangeTextVendingMachine("R$ " + payment);
+        ChangeTextVendingMachine($"{payment}");
     }
 }
