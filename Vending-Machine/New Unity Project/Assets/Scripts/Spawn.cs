@@ -7,7 +7,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject candyA, candyB, candyC;
     public GameObject coin1,coin2,coin5;
-    public Transform spawn, spawnCoinObj;
+    public Transform spawnA, spawnB, spawnC, spawnCoinObj;
 
     void Start()
     {
@@ -21,11 +21,18 @@ public class Spawn : MonoBehaviour
 
     public void spawnCandy(int candyType)
     {
+        Transform spawn = spawnA;
         GameObject candy = candyA;
-        if(candyType == 2)
+        if (candyType == 2)
+        {
             candy = candyB;
-        else if(candyType == 3)
-            candy  = candyC;
+            spawn = spawnB;
+        }
+        else if (candyType == 3)
+        {
+            candy = candyC;
+            spawn = spawnC;
+        }
         Instantiate(candy, spawn.position, Quaternion.identity);
 
     }
