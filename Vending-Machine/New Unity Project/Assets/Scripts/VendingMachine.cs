@@ -38,7 +38,7 @@ public class VendingMachine : MonoBehaviour
         }
         else
         {
-            ChangeTextVendingMachine("Not enough money");
+            ChangeTextVendingMachine("FALTA dinheiro");
         }
     }
 
