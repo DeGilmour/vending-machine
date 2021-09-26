@@ -34,7 +34,6 @@ public class OnClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        
         ChangeSprite(1);
         AcceptCandy(buttonType);
         audioPlayer.ChooseAudioToPlay(2);

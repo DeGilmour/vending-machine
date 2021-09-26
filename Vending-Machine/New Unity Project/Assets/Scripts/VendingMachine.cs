@@ -14,7 +14,9 @@ public class VendingMachine : MonoBehaviour
     public Spawn spawn;
     private Candy candy;
 
-    public Text screen;
+    public Text screenValue;
+    public Text screenChange;
+
 
     void Start()
     {
@@ -29,16 +31,18 @@ public class VendingMachine : MonoBehaviour
     {
         candy = new Candy(candyType);
         int change = (int) (payment - candy.DecideWhichCandy());
+        
         ChangeTextVendingMachine($"{change}");
         if (change >= 0)
         {
+            screenChange.text = "TROCO: ";
             CalculateChange(change);
             payment = 0;
             DropItem(candyType);
         }
         else
         {
-            ChangeTextVendingMachine("FALTA dinheiro");
+            screenChange.text = "ERRO";
         }
     }
 
@@ -67,7 +71,7 @@ public class VendingMachine : MonoBehaviour
     private void ChangeTextVendingMachine(string msg)
     {
         Debug.Log(msg);
-        screen.text = msg;
+        screenValue.text = msg;
     }
 
     private void CallAlertUnity(string msg)
@@ -90,6 +94,7 @@ public class VendingMachine : MonoBehaviour
         if (!collision.gameObject.CompareTag("Money")) return;
         double value = collision.gameObject.GetComponent<DragItem>().value;
         payment += value;
+        screenChange.text = "PAG.";
         ChangeTextVendingMachine($"{payment}");
     }
 }
