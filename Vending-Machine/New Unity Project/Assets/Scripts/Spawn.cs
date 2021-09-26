@@ -37,8 +37,11 @@ public class Spawn : MonoBehaviour
         Instantiate(candy, spawn.position, Quaternion.identity);
 
     }
-    public void spawnCoin(int coinType)
+
+    public IEnumerator spawnCoin(int coinType) 
     {
+        yield return new WaitForSeconds(3);
+        audioPlayer.ChooseAudioToPlay(1);
         GameObject coin = coin1;
         if(coinType == 2)
             coin = coin2;
@@ -46,6 +49,5 @@ public class Spawn : MonoBehaviour
             coin  = coin5;
         Instantiate(coin, spawnCoinObj.position, Quaternion.identity).AddComponent<Coin>();
         audioPlayer.ChooseAudioToPlay(1);
-
     }
 }

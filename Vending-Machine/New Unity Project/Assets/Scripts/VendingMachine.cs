@@ -82,7 +82,7 @@ public class VendingMachine : MonoBehaviour
 
     public void DropCoin(int coinType)
     {
-        spawn.spawnCoin(coinType);
+        StartCoroutine(spawn.spawnCoin(coinType));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

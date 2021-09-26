@@ -23,14 +23,22 @@ public class AudioPlayer : MonoBehaviour
     {
         // 1 is coinDrop, 2 is doubleSwitch, 3 is paperRustle and 4 is dropOnWood
         audioSource.Stop();
-        audioSource.clip = audioType switch
+        switch (audioType)
         {
-            1 => coinDrop,
-            2 => doubleSwitch,
-            3 => paperRustle,
-            4 => dropOnWood,
-            _ => audioSource.clip
-        };
+            case 1:
+                audioSource.priority = 10;
+                audioSource.clip = coinDrop;
+                break; 
+            case 2:
+                audioSource.clip = doubleSwitch;
+                break;
+            case 3:
+                audioSource.clip = paperRustle;
+                break;
+            case 4:
+                audioSource.clip = dropOnWood;
+                break;
+        }
         audioSource.Play();
     }
 }
