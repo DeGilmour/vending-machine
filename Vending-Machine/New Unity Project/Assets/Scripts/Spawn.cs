@@ -6,12 +6,13 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public GameObject candyA, candyB, candyC;
-    public GameObject coin1,coin2,coin5;
+    public GameObject coin1,coin2,coin5, audioPlayerObj;
     public Transform spawnA, spawnB, spawnC, spawnCoinObj;
+    public AudioPlayer audioPlayer;
 
     void Start()
     {
-        
+        audioPlayer = audioPlayerObj.GetComponent<AudioPlayer>();
     }
 
     void Update()
@@ -36,13 +37,15 @@ public class Spawn : MonoBehaviour
         Instantiate(candy, spawn.position, Quaternion.identity);
 
     }
-    public void spawnCoin(int coinType){
+    public void spawnCoin(int coinType)
+    {
         GameObject coin = coin1;
         if(coinType == 2)
             coin = coin2;
         else if(coinType == 5)
             coin  = coin5;
         Instantiate(coin, spawnCoinObj.position, Quaternion.identity).AddComponent<Coin>();
+        audioPlayer.ChooseAudioToPlay(1);
 
     }
 }

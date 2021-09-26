@@ -10,13 +10,15 @@ public class OnClick : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite newSprite, oldSprite;
     // Nao consigo acessar o script sem ser pegando do objeto, se voces conseguirem arrumem isso.
-    public GameObject vendingMachine;
+    public GameObject vendingMachine, audioPlayerObj;
     public VendingMachine vendingMachineObj;
     public int buttonType;
+    public AudioPlayer audioPlayer;
     void Start()
     {
         vendingMachineObj = vendingMachine.GetComponent<VendingMachine>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioPlayer = audioPlayerObj.GetComponent<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class OnClick : MonoBehaviour
         
         ChangeSprite(1);
         AcceptCandy(buttonType);
+        audioPlayer.ChooseAudioToPlay(2);
     }
     
     void OnMouseUp()
