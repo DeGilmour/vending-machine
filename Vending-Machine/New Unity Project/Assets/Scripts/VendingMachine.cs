@@ -32,7 +32,7 @@ public class VendingMachine : MonoBehaviour
         ChangeTextVendingMachine($"{change}");
         if (change >= 0)
         {
-            CalculateChange(change);
+            StartCoroutine(CalculateChange(change));
             payment = 0;
             DropItem(candyType);
         }
@@ -42,7 +42,7 @@ public class VendingMachine : MonoBehaviour
         }
     }
 
-    private void CalculateChange(int change)
+    private IEnumerator CalculateChange(int change)
     {
         int[] coins = {5, 2, 1};
         int[] amounts = new int[coins.Length];
@@ -59,6 +59,7 @@ public class VendingMachine : MonoBehaviour
             msg += $" Moedas de {coins[i]}: {amounts[i]}";
             for (var c = 1; c <= amounts[i]; c++)
             {
+                yield return new WaitForSeconds(1);
                 DropCoin(coins[i]);
             }
         }

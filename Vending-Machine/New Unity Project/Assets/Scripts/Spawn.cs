@@ -40,7 +40,7 @@ public class Spawn : MonoBehaviour
 
     public IEnumerator spawnCoin(int coinType) 
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         audioPlayer.ChooseAudioToPlay(1);
         GameObject coin = coin1;
         if(coinType == 2)
