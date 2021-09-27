@@ -90,7 +90,6 @@ public class VendingMachine : MonoBehaviour
 
     private void ChangeTextVendingMachine(string msg)
     {
-        Debug.Log(msg);
         screenValue.text = msg;
     }
 
