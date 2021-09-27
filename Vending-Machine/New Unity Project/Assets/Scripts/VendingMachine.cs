@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.WSA;
-using UnityEditor;
 
 public class VendingMachine : MonoBehaviour
 {
@@ -40,7 +38,6 @@ public class VendingMachine : MonoBehaviour
         {
             StartCoroutine(CalculateChange(change));
             screenChange.text = "TROCO: ";
-            CalculateChange(change);
             payment = 0;
             DropItem(candyType);
         }
@@ -57,17 +54,13 @@ public class VendingMachine : MonoBehaviour
     {
         int[] coins = {5, 2, 1};
         int[] amounts = new int[coins.Length];
-        string msg = "";
-
         for (int i = 0; i < coins.Length; i++)
         {
             amounts[i] = change / coins[i];
             change = change % coins[i];
         }
-
         for (int i = 0; i < amounts.Length; i++)
         {
-            msg += $" Moedas de {coins[i]}: {amounts[i]}";
             for (var c = 1; c <= amounts[i]; c++)
             {
                 yield return new WaitForSeconds(1);
@@ -92,18 +85,13 @@ public class VendingMachine : MonoBehaviour
     {
         screenValue.text = msg;
     }
-
-    private void CallAlertUnity(string msg)
-    {
-        EditorUtility.DisplayDialog("Resultado do Troco", msg, "Okay");
-    }
-
+    
     private void DropItem(int candyType)
     {
         spawn.spawnCandy(candyType);
     }
 
-    public void DropCoin(int coinType)
+    private void DropCoin(int coinType)
     {
         StartCoroutine(spawn.spawnCoin(coinType));
     }
