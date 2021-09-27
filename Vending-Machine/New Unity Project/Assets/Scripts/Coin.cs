@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour
 
     void CoinCannon()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(RandomVector() * 20f * Time.deltaTime);
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(RandomVector() * 40f * Time.deltaTime);
         Destroy(this.gameObject, 3f);
     }
 

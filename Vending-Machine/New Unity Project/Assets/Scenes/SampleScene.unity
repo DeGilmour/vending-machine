@@ -390,8 +390,8 @@ MonoBehaviour:
   payment: 0
   spawnObject: {fileID: 1949398987}
   spawn: {fileID: 1949398988}
-  screenValue: {fileID: 0}
-  screenChange: {fileID: 0}
+  screenValue: {fileID: 571499957}
+  screenChange: {fileID: 33838906}
 --- !u!61 &176100658
 BoxCollider2D:
   m_ObjectHideFlags: 0

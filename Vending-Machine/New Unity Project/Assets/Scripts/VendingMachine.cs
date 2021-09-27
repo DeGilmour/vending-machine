@@ -35,6 +35,7 @@ public class VendingMachine : MonoBehaviour
         ChangeTextVendingMachine($"{change}");
         if (change >= 0)
         {
+            StartCoroutine(CalculateChange(change));
             screenChange.text = "TROCO: ";
             CalculateChange(change);
             payment = 0;
@@ -46,7 +47,7 @@ public class VendingMachine : MonoBehaviour
         }
     }
 
-    private void CalculateChange(int change)
+    private IEnumerator CalculateChange(int change)
     {
         int[] coins = {5, 2, 1};
         int[] amounts = new int[coins.Length];
@@ -63,6 +64,7 @@ public class VendingMachine : MonoBehaviour
             msg += $" Moedas de {coins[i]}: {amounts[i]}";
             for (var c = 1; c <= amounts[i]; c++)
             {
+                yield return new WaitForSeconds(1);
                 DropCoin(coins[i]);
             }
         }
@@ -86,14 +88,21 @@ public class VendingMachine : MonoBehaviour
 
     public void DropCoin(int coinType)
     {
-        spawn.spawnCoin(coinType);
+        StartCoroutine(spawn.spawnCoin(coinType));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Money")) return;
         double value = collision.gameObject.GetComponent<DragItem>().value;
-        payment += value;
+        if (payment >= 15)
+        {
+            payment = 15; 
+        }
+        else
+        {
+            payment += value;
+        }
         screenChange.text = "PAG.";
         ChangeTextVendingMachine($"{payment}");
     }

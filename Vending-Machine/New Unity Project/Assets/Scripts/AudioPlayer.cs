@@ -26,8 +26,9 @@ public class AudioPlayer : MonoBehaviour
         switch (audioType)
         {
             case 1:
+                audioSource.priority = 10;
                 audioSource.clip = coinDrop;
-                break;
+                break; 
             case 2:
                 audioSource.clip = doubleSwitch;
                 break;
@@ -37,7 +38,6 @@ public class AudioPlayer : MonoBehaviour
             case 4:
                 audioSource.clip = dropOnWood;
                 break;
-
         }
         audioSource.Play();
     }
