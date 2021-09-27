@@ -9,10 +9,12 @@ using UnityEditor;
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
-    public double payment;
+    public int payment;
     public GameObject spawnObject;
     public Spawn spawn;
     private Candy candy;
+    public AudioPlayer audioPlayer;
+    public GameObject audioPlayerObj;
 
     public Text screenValue;
     public Text screenChange;
@@ -21,6 +23,7 @@ public class VendingMachine : MonoBehaviour
     void Start()
     {
         spawn = spawnObject.GetComponent<Spawn>();
+        audioPlayer = audioPlayerObj.GetComponent<AudioPlayer>();
     }
 
     void Update()
@@ -44,7 +47,10 @@ public class VendingMachine : MonoBehaviour
         else
         {
             screenChange.text = "ERRO";
+            audioPlayer.ChooseAudioToPlay(6);
+            StartCoroutine(Waiter(5));
         }
+
     }
 
     private IEnumerator CalculateChange(int change)
@@ -68,6 +74,18 @@ public class VendingMachine : MonoBehaviour
                 DropCoin(coins[i]);
             }
         }
+        yield return new WaitForSeconds(5);
+        ChangeTextVendingMachine("");
+        screenChange.text = "";
+    }
+
+    private IEnumerator Waiter(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        screenChange.text = "";
+        screenValue.text = "";
+        StartCoroutine(CalculateChange(payment));
+        payment = 0;
     }
 
     private void ChangeTextVendingMachine(string msg)
@@ -94,7 +112,7 @@ public class VendingMachine : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Money")) return;
-        double value = collision.gameObject.GetComponent<DragItem>().value;
+        int value = (int)collision.gameObject.GetComponent<DragItem>().value;
         if (payment >= 15)
         {
             payment = 15; 
@@ -102,8 +120,10 @@ public class VendingMachine : MonoBehaviour
         else
         {
             payment += value;
+            audioPlayer.ChooseAudioToPlay(5);
         }
         screenChange.text = "PAG.";
         ChangeTextVendingMachine($"{payment}");
+
     }
 }

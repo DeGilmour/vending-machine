@@ -6,7 +6,7 @@ public class AudioPlayer : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public AudioClip coinDrop, doubleSwitch, paperRustle, dropOnWood;
+    public AudioClip coinDrop, doubleSwitch, paperRustle, dropOnWood, insertCoin, ErrorSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +22,13 @@ public class AudioPlayer : MonoBehaviour
     public void ChooseAudioToPlay(int audioType)
     {
         // 1 is coinDrop, 2 is doubleSwitch, 3 is paperRustle and 4 is dropOnWood
-        audioSource.Stop();
+        audioSource.Pause();
         switch (audioType)
         {
             case 1:
                 audioSource.priority = 10;
                 audioSource.clip = coinDrop;
-                break; 
+                break;
             case 2:
                 audioSource.clip = doubleSwitch;
                 break;
@@ -38,7 +38,13 @@ public class AudioPlayer : MonoBehaviour
             case 4:
                 audioSource.clip = dropOnWood;
                 break;
+            case 5:
+                audioSource.clip = insertCoin;
+                break;
+            case 6:
+                audioSource.clip = ErrorSound;
+                break;
         }
-        audioSource.Play();
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

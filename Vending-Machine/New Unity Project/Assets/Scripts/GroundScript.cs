@@ -16,7 +16,7 @@ public class GroundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,8 +25,15 @@ public class GroundScript : MonoBehaviour
         {
             SpriteRenderer candySprite = collision.gameObject.GetComponent<SpriteRenderer>();
             candySprite.sortingLayerName = "Coins";
-            audioPlayer.ChooseAudioToPlay(4);
+            if(collision.gameObject.name == "DoceA(Clone)")
+            {
+                audioPlayer.ChooseAudioToPlay(3);
+            }
+            else
+            {
+                audioPlayer.ChooseAudioToPlay(4);
+            }
         }
     }
-    
+
 }
