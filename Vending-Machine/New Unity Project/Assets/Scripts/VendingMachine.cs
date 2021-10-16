@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class VendingMachine : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int payment;
+    public int payment, maxNumberOfCandy;
     public GameObject spawnObject;
     public Spawn spawn;
     private Candy candy;
     public AudioPlayer audioPlayer;
     public GameObject audioPlayerObj;
-
+    public Counter counter;
     public Text screenValue;
     public Text screenChange;
 
@@ -89,6 +89,18 @@ public class VendingMachine : MonoBehaviour
     private void DropItem(int candyType)
     {
         spawn.spawnCandy(candyType);
+        switch (candyType)
+        {
+            case 1:
+                counter.numberOfCandyA--;
+                break;
+            case 2:
+                counter.numberOfCandyB--;
+                break;
+            case 3:
+                counter.numberOfCandyC--;
+                break;
+        }
     }
 
     private void DropCoin(int coinType)
@@ -99,7 +111,7 @@ public class VendingMachine : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Money")) return;
-        int value = (int)collision.gameObject.GetComponent<DragItem>().value;
+        int value = collision.gameObject.GetComponent<Coin>().coinValue;
         if (payment >= 15)
         {
             payment = 15; 

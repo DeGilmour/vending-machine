@@ -47,7 +47,7 @@ public class Spawn : MonoBehaviour
             coin = coin2;
         else if(coinType == 5)
             coin  = coin5;
-        Instantiate(coin, spawnCoinObj.position, Quaternion.identity).AddComponent<Coin>();
+        Instantiate(coin, spawnCoinObj.position, Quaternion.identity).AddComponent<CoinDropped>();
         audioPlayer.ChooseAudioToPlay(1);
     }
 }
