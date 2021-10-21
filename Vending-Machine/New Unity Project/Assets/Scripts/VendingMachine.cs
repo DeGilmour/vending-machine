@@ -110,6 +110,12 @@ public class VendingMachine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("CandyBox"))
+        {
+            var boxInElevator = counter.boxInElevator.GetComponent<CandyBox>().candyBoxType;
+            Debug.Log("Candy box type " + boxInElevator);
+            counter.AdjustCandyInMachine(boxInElevator);
+        }
         if (!collision.gameObject.CompareTag("Money")) return;
         int value = collision.gameObject.GetComponent<Coin>().coinValue;
         if (payment >= 15)

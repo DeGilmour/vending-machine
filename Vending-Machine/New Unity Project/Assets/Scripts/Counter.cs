@@ -6,9 +6,11 @@ public class Counter : MonoBehaviour
 {
     public GameObject boxInElevator;
 
-    public int numberOfCandyA, numberOfCandyB, numberOfCandyC;
+    public int numberOfCandyA, numberOfCandyB, numberOfCandyC, maxNumberOfCandy;
 
     public Elevator elevator;
+
+    public GameObject candbox1;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,32 @@ public class Counter : MonoBehaviour
         // {
         //     elevator.floorToMove = 3;
         // }
+    }
+
+    public void DecideWhichBox(int candyBoxType)
+    {
+        switch (candyBoxType)
+        {
+            case 1:
+                boxInElevator = candbox1;
+                break;
+        }
+    }
+
+    public void AdjustCandyInMachine(int candyBoxType)
+    {
+        Debug.Log(candyBoxType);
+        switch (candyBoxType)
+        {
+            case 1:
+                numberOfCandyA = maxNumberOfCandy;
+                break;
+            case 2:
+                numberOfCandyB = maxNumberOfCandy;
+                break;
+            case 3:
+                numberOfCandyC = maxNumberOfCandy;
+                break;
+        }
     }
 }
