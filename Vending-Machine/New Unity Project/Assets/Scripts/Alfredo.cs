@@ -10,6 +10,7 @@ public class Alfredo : MonoBehaviour
     public float alfredoSpeed;
     public Animator alfredoAnimator;
     private bool goingLeft = true, goingRight = false, stopped=false;
+    public SpriteRenderer alfredoSpriteRenderer;
     void Start()
     {
         
@@ -49,19 +50,14 @@ public class Alfredo : MonoBehaviour
         {
             goingRight = true;
             goingLeft = false;
-            transform.localScale = new Vector3(
-                transform.localScale.x * -1, 
-                transform.localScale.y, 
-                transform.localScale.z);
+            alfredoSpriteRenderer.flipX = true;
         }
         else if (collision.gameObject.name == "AlfredoRight")
         {
             goingLeft = true;
             goingRight = false;
-            transform.localScale = new Vector3(
-                transform.localScale.x * -1, 
-                transform.localScale.y, 
-                transform.localScale.z);
+            alfredoSpriteRenderer.flipX = false;
         }
+        
     }
 }
