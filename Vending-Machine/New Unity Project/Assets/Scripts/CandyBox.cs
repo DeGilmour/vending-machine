@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class CandyBox : MonoBehaviour
 {
-    public int coinValue;
     // Start is called before the first frame update
+    public int candyBoxType;
     void Start()
     {
         
@@ -16,5 +16,4 @@ public class Coin : MonoBehaviour
     {
         
     }
-    
 }
