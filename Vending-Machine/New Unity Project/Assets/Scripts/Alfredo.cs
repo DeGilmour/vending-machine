@@ -13,7 +13,7 @@ public class Alfredo : MonoBehaviour
     public SpriteRenderer alfredoSpriteRenderer;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,6 +46,7 @@ public class Alfredo : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Alfredo collided  with : " + collision.gameObject.name);
         if (collision.gameObject.name == "AlfredoLeft")
         {
             goingRight = true;
@@ -57,6 +58,10 @@ public class Alfredo : MonoBehaviour
             goingLeft = true;
             goingRight = false;
             alfredoSpriteRenderer.flipX = false;
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), this.gameObject.GetComponent<Collider2D>());
         }
         
     }
