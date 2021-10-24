@@ -42,10 +42,11 @@ public class Elevator : MonoBehaviour
         var toBeSpeed = elevatorMoveSpeed - 1f;
         var distanceBetweenShaftElevator = Vector3.Distance(transform.position, shaft);
         // All the physics  below is just for flavor
+
         if (distanceBetweenShaftElevator > 0 && toBeSpeed >= 0)
         {
             
-            if (distanceBetweenShaftElevator <= 15) {
+            if (distanceBetweenShaftElevator <= 5) {
                 elevatorMoveSpeed -= elevatorDecelerationsSpeed * Time.deltaTime * 3f; // Decelerates the elevator when it gets closer to the floor
                 
             }
@@ -56,7 +57,7 @@ public class Elevator : MonoBehaviour
             elevatorMoveSpeed = 0f;
             StartCoroutine(OpenElevatorDoors());
         }
-        if (distanceBetweenShaftElevator > 15 && elevatorMoveSpeed <= elevatorMaxSpeed)
+        if (distanceBetweenShaftElevator > 5 && elevatorMoveSpeed <= elevatorMaxSpeed)
         {
             elevatorMoveSpeed += elevatorDecelerationsSpeed * Time.deltaTime * 3f; // Accelerates the elevator when it gets further from the floor
             
