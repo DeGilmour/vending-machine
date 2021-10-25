@@ -9,7 +9,7 @@ public class Elevator : MonoBehaviour
     public bool needsToMove;
     public float elevatorMoveSpeed, elevatorDecelerationsSpeed, elevatorMaxSpeed;
     public Transform shaft0, shaft1, shaft2, shaft3;
-    public int floorToMove; // vai ser removido
+    public int floorToMove, currentFloor = 0; // vai ser removido
     public Counter counter;
     private int boxInElevatorType;
     void Start()
@@ -78,11 +78,23 @@ public class Elevator : MonoBehaviour
             boxInElevatorType = collision.gameObject.GetComponent<CandyBox>().candyBoxType;
             // Destroy(collision.gameObject, 1f);
         }
+        if (collision.gameObject.CompareTag("Stop"))
+        {
+            Debug.Log("collided with ");
+        }
     }
 
-    private void OnMouseDown()
+    // private void OnMouseDown()
+    // {
+    //     // Instantiate the candy box inside the elevator
+    //     counter.boxInElevator.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;
+    //     GameObject clone = counter.boxInElevator;
+    //     clone.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;
+    //     Destroy(Instantiate(clone, this.transform), 10f);
+    // }
+
+    public void DropBoxElevator()
     {
-        // Instantiate the candy box inside the elevator
         counter.boxInElevator.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;
         GameObject clone = counter.boxInElevator;
         clone.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;

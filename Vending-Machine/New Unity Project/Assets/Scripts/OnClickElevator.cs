@@ -22,12 +22,12 @@ public class OnClickElevator : MonoBehaviour
     void OnMouseDown()
     {
         // ChangeSprite(1);
+        Debug.Log("ELevator buttons beig clicked");
         MoveToFloor(floorToMove);
     }
 
     public void MoveToFloor(int floor)
     {
-        Debug.Log("floor to move " + floor);
         elevator.floorToMove = floor;
         elevator.needsToMove = true;
     }
