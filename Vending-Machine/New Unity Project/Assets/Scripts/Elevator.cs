@@ -84,6 +84,8 @@ public class Elevator : MonoBehaviour
     {
         // Instantiate the candy box inside the elevator
         counter.boxInElevator.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;
-        Instantiate(counter.boxInElevator, this.transform);
+        GameObject clone = counter.boxInElevator;
+        clone.GetComponent<CandyBox>().candyBoxType = boxInElevatorType;
+        Destroy(Instantiate(clone, this.transform), 10f);
     }
 }
