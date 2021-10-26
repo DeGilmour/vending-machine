@@ -10,6 +10,6 @@ public class FollowElevator : MonoBehaviour
     
     private void FixedUpdate()
     {
-        this.gameObject.transform.position = new Vector3(0, elevator.transform.position.y, -10);
+        this.gameObject.transform.position = new Vector3(0, elevator.transform.position.y + 0.7f, -10);
     }
 }

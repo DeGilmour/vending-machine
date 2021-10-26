@@ -30,6 +30,24 @@ public class VendingMachine : MonoBehaviour
 
     public void AcceptCandy(int candyType)
     {
+        if (counter.numberOfCandyA <= 0 && candyType == 1)
+        {
+            ChangeTextVendingMachine("Out of A");
+            Waiter(5);
+            return;
+        }
+        if (counter.numberOfCandyB <= 0  && candyType == 2)
+        {
+            ChangeTextVendingMachine("Out of B");
+            Waiter(5);
+            return;
+        }
+        if (counter.numberOfCandyC <= 0  && candyType == 3)
+        {
+            ChangeTextVendingMachine("Out of C");
+            Waiter(5);
+            return;
+        }
         candy = new Candy(candyType);
         int change = (int) (payment - candy.DecideWhichCandy());
         
@@ -88,7 +106,6 @@ public class VendingMachine : MonoBehaviour
     
     private void DropItem(int candyType)
     {
-        spawn.spawnCandy(candyType);
         switch (candyType)
         {
             case 1:
@@ -101,6 +118,8 @@ public class VendingMachine : MonoBehaviour
                 counter.numberOfCandyC--;
                 break;
         }
+        
+        spawn.spawnCandy(candyType);
     }
 
     private void DropCoin(int coinType)

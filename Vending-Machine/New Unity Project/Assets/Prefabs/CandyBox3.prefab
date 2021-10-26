@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1383452596545398366}
   - component: {fileID: 7270885560776970433}
   - component: {fileID: -3177652424349818793}
+  - component: {fileID: -8127913654947553279}
   m_Layer: 0
   m_Name: CandyBox3
   m_TagString: Untagged
@@ -85,9 +86,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2089321155
+  m_SortingLayer: 3
+  m_SortingOrder: 32767
   m_Sprite: {fileID: 21300000, guid: 7743a7eddf153124fb4f4cb1b410d15b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -161,3 +162,16 @@ MonoBehaviour:
   itemToBeDragged: {fileID: -1383452596545398366}
   pos: {x: 0, y: 0, z: 0}
   value: 0
+--- !u!114 &-8127913654947553279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223631774756876431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df321b01b719e6c438140c47b27ee32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candyBoxType: 3

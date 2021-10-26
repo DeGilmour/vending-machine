@@ -21,8 +21,7 @@ public class OnClickElevator : MonoBehaviour
     // Update is called once per frame
     void OnMouseDown()
     {
-        // ChangeSprite(1);
-        Debug.Log("ELevator buttons beig clicked");
+        Debug.Log("Needs to move to " + floorToMove);
         MoveToFloor(floorToMove);
     }
 

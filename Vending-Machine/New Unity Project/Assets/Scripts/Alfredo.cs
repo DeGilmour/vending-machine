@@ -11,9 +11,11 @@ public class Alfredo : MonoBehaviour
     public Animator alfredoAnimator;
     private bool goingLeft = true, goingRight = false, stopped=false;
     public SpriteRenderer alfredoSpriteRenderer;
+    public GameObject audioPlayerObj;
+    public AudioPlayer audioPlayer;
     void Start()
     {
-
+        audioPlayer = audioPlayerObj.GetComponent<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -40,13 +42,13 @@ public class Alfredo : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         alfredoAnimator.SetBool("Running", false);
+        // audioPlayer.ChooseAudioToPlay(8);
         stopped = true;
         yield return new WaitForSeconds(5);
         stopped = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Alfredo collided  with : " + collision.gameObject.name);
         if (collision.gameObject.name == "AlfredoLeft")
         {
             goingRight = true;
@@ -59,9 +61,15 @@ public class Alfredo : MonoBehaviour
             goingRight = false;
             alfredoSpriteRenderer.flipX = false;
         }
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Collided with the ground");
+            return;
+        }
         else
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), this.gameObject.GetComponent<Collider2D>());
+            
         }
         
     }

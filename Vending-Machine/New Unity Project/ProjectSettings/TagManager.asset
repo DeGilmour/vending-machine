@@ -8,6 +8,7 @@ TagManager:
   - Candy
   - CandyBox
   - Stop
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Elevator
+    uniqueID: 297920091
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

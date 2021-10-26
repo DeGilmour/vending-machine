@@ -6,7 +6,7 @@ public class AudioPlayer : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public AudioClip coinDrop, doubleSwitch, paperRustle, dropOnWood, insertCoin, ErrorSound;
+    public AudioClip coinDrop, doubleSwitch, paperRustle, dropOnWood, insertCoin, ErrorSound, movingElevator, cat, stoppedElevator;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +44,17 @@ public class AudioPlayer : MonoBehaviour
             case 6:
                 audioSource.clip = ErrorSound;
                 break;
+            case 7:
+                audioSource.clip = movingElevator;
+                break;
+            case  8:
+                audioSource.clip = cat;
+                break;
+            case  9 :
+                audioSource.clip = stoppedElevator;
+                break;
         }
+        
         audioSource.PlayOneShot(audioSource.clip);
     }
 }
