@@ -16,10 +16,10 @@ public class Elevator : MonoBehaviour
     public GameObject[] arrowsUp, arrowsDown;
     public GameObject audioPlayerObj;
 
-    // public Animator elevatorAnimator;
+    public Animator elevatorAnimator;
     void Start()
     {
-        // elevatorAnimator.SetBool("OpenDoors", true);
+        elevatorAnimator.SetBool("OpenDoors", true);
         audioPlayer = audioPlayerObj.GetComponent<AudioPlayer>();
     }
 
@@ -79,7 +79,7 @@ public class Elevator : MonoBehaviour
             
             needsToMove = false;
             elevatorMoveSpeed = 0f;
-            StartCoroutine(OpenElevatorDoors());
+            elevatorAnimator.SetBool("OpenDoors", true);
             currentFloor = floorToMove;
             audioPlayer.ChooseAudioToPlay(9);
         }
@@ -111,13 +111,7 @@ public class Elevator : MonoBehaviour
             }
         }
     }
-
-    IEnumerator OpenElevatorDoors()
-    {
-        yield return new WaitForSeconds(2);
-        Debug.Log("Opens the doors");
-    }
-
+    
     // private void OnCollisionEnter2D(Collision2D collision)
     // {
     //     // needsToMove = false;

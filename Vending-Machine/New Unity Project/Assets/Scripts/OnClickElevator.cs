@@ -8,6 +8,7 @@ public class OnClickElevator : MonoBehaviour
     // private SpriteRenderer spriteRenderer;
     // public Sprite newSprite, oldSprite;
     public Elevator elevator;
+    public Animator elevatorAnimator;
 
     public GameObject elevatorObj;
 
@@ -22,12 +23,14 @@ public class OnClickElevator : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Needs to move to " + floorToMove);
-        MoveToFloor(floorToMove);
+        StartCoroutine(MoveToFloor(floorToMove));
     }
 
-    public void MoveToFloor(int floor)
+    public IEnumerator MoveToFloor(int floor)
     {
         elevator.floorToMove = floor;
+        elevatorAnimator.SetBool("OpenDoors", false);
+        yield return new WaitForSeconds(5);
         elevator.needsToMove = true;
     }
     void OnMouseUp()
